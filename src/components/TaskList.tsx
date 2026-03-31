@@ -5,7 +5,7 @@ interface TaskListProps {
     tasks: Task[];
 }
 
-const TaskList = (props) => {
+const TaskList: React.FC<TaskListProps> = ({tasks}) => { //add react.FC<TaskListProps>; destructure from props to --> tasks
 
 return (
     <div>
@@ -18,3 +18,6 @@ return (
 }
 
 export default TaskList;
+
+//ChatGPT helped me structure this component
+//After I built it, Chat debugged it and helped me correct it.
