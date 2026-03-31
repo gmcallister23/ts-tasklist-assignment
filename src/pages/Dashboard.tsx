@@ -1,4 +1,5 @@
 import type { Task } from '../types/Task'
+import TaskList from '../components/TaskList'
 
 const Dashboard: React.FC = () => {
 
@@ -16,22 +17,25 @@ const task2: Task = {
     completed: true
 }
 
-tasks.push(task1);
-tasks.push(task2);
+// tasks.push(task1); //TaskList now handles the mapping, TaskItem now handles the rendering.
+// tasks.push(task2);
 
 console.log("Tasks", tasks);
 
 return (
-    <div>
-        {tasks.map((task, index) =>
-        <div key={index}>
-            <h3>{task.title}</h3>
-            <p>{task.description}</p>
-            <p>{task.completed ? "Completed" : "Incomplete"}</p>
-
+        <div>
+            <TaskList tasks={tasks} /> {/*Chat suggested this as well, we're passing the TaskList and TaskItems in order to map and render the tasks */}
         </div>
-        )}
-    </div>
+    // <div>
+    //     {tasks.map((task, index) =>
+    //     <div key={index}>
+    //         <h3>{task.title}</h3>
+    //         <p>{task.description}</p>
+    //         <p>{task.completed ? "Completed" : "Incomplete"}</p>
+
+    //     </div>
+    //     )}
+    // </div>
 )
 
 }
