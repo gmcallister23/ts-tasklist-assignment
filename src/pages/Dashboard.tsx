@@ -1,23 +1,30 @@
 import type { Task } from '../types/Task'
 import React, { useState } from 'react';
 import TaskList from '../components/TaskList';
+import TaskForm from '../components/TaskForm';
 
 const Dashboard: React.FC = () => {
 
     const [tasks, setTasks] = useState<Task[]>([]);
     const [newTask, setNewTask] = useState<string>('');
 
-    const addTask = (): void => {
-        if (newTask.trim() !== '') {
-                const taskToAdd: Task = {
-                    title: newTask,
-                    description: '',
-                    completed: false,
-                }
-            setTasks([...tasks, taskToAdd]);
-            setNewTask('');
-         }
-        };
+    // const addTask = (): void => {
+    //     if (newTask.trim() !== '') {
+    //             const taskToAdd: Task = {
+    //                 title: newTask,
+    //                 description: '',
+    //                 completed: false,
+    //             }
+    //         setTasks([...tasks, taskToAdd]);
+    //         setNewTask('');
+    //      }
+    //     };
+
+    //can remove above const addTask since we are now using TaskForm
+
+    const addTask = (task: Task ) => {
+        setTasks(prev => [...prev, task]);
+    };
     
     const toggleTask = (title: string): void => {
         setTasks((prevTasks) => 
@@ -47,6 +54,7 @@ return (
         <button onClick={addTask} className='btn btn-primary'>Add Task</button>
     
         <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask}/> {/*Chat suggested this as well, we're passing the TaskList and TaskItems in order to map and render the tasks */}
+        <TaskForm addTask={addTask} />
     </div> 
         
 
