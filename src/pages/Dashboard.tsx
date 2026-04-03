@@ -43,16 +43,16 @@ console.log("Tasks", tasks);
 
 return (
    
-    
-    <div className="input-group">
-        <input
-            type="text"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-            className="form-control me-2"
-            />
-        <button onClick={addTask} className='btn btn-primary'>Add Task</button>
-    
+   
+    // <div className="input-group">
+    //     <input
+    //         type="text"
+    //         value={newTask}
+    //         onChange={(e) => setNewTask(e.target.value)}
+    //         className="form-control me-2"
+    //         />
+    //     <button onClick={addTask} className='btn btn-primary'>Add Task</button>
+     <div>
         <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask}/> {/*Chat suggested this as well, we're passing the TaskList and TaskItems in order to map and render the tasks */}
         <TaskForm addTask={addTask} />
     </div> 
