@@ -1,5 +1,6 @@
 import type { Task } from '../types/Task';
 import React from 'react';
+//import { Row } from 'react-bootstrap';
 
 interface TaskItemProps {
     task: Task;
@@ -9,21 +10,23 @@ interface TaskItemProps {
 
 const TaskItem: React.FC<TaskItemProps>= ({ task, toggleTask, deleteTask }) => {
     return (
-        <div>
+        <div className="d-flex align-items-center justify-content-between p-2 border rounded">
+          
+            <h1>Task Details</h1>
             <input 
                 type="checkbox"
                 checked={task.completed}
                 onChange={() => toggleTask(task.title)}
                 />
                 <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
-                    {task.title}
                     </span>
-            <h1>Task Details</h1>
+            
             <p>{task.title}</p>
             <p>{task.description}</p>
             <p>{task.completed}</p>
             <button onClick={() => deleteTask(task.title)}>🗑️</button>
         </div>
+        
     )
 }
 

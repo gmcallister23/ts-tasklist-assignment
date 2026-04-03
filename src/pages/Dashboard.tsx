@@ -40,7 +40,7 @@ return (
     <div className="input-group">
         <input
             type="text"
-            value="newTask"
+            value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
             className="form-control me-2"
             />

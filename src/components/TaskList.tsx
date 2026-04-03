@@ -1,5 +1,6 @@
 import TaskItem from '../components/TaskItem';
 import type { Task } from '../types/Task';
+import { Container, Row, Col } from 'react-bootstrap';
 
 interface TaskListProps {
     tasks: Task[];
@@ -10,11 +11,16 @@ interface TaskListProps {
 const TaskList: React.FC<TaskListProps> = ({tasks, toggleTask, deleteTask}) => { //add react.FC<TaskListProps>; destructure from props to --> tasks
 
 return (
-    <div>
-        {tasks.map((task, index) => ( 
-            <TaskItem key={index} task={task} toggleTask={toggleTask} deleteTask={deleteTask}/>
+    <Container>
+        <Row>
+            
+        {tasks.map((tasks, index) => ( 
+            <Col key={tasks.title} xs={12} md={6} lg={4} className="mt-3">
+            <TaskItem key={index} task={tasks} toggleTask={toggleTask} deleteTask={deleteTask}/>
+        </Col>
         ))}
-    </div>
+        </Row>
+    </Container>
 )
 
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Dashboard from './pages/Dashboard'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 function App() {
