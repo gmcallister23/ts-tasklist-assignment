@@ -3,14 +3,16 @@ import type { Task } from '../types/Task';
 
 interface TaskListProps {
     tasks: Task[];
+    toggleTask: (title: string) => void;
+    deleteTask: (title: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({tasks}) => { //add react.FC<TaskListProps>; destructure from props to --> tasks
+const TaskList: React.FC<TaskListProps> = ({tasks, toggleTask, deleteTask}) => { //add react.FC<TaskListProps>; destructure from props to --> tasks
 
 return (
     <div>
         {tasks.map((task, index) => ( 
-            <TaskItem key={index} task={task} />
+            <TaskItem key={index} task={task} toggleTask={toggleTask} deleteTask={deleteTask}/>
         ))}
     </div>
 )
