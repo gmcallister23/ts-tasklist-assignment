@@ -33,3 +33,5 @@ const TaskItem: React.FC<TaskItemProps>= ({ task, toggleTask, deleteTask }) => {
 export default TaskItem;
 
 //destructure the props later --> destructured.
+
+//debugged display issues with Chat

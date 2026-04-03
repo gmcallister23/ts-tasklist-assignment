@@ -29,3 +29,5 @@ export default TaskList;
 
 //ChatGPT helped me structure this component
 //After I built it, Chat debugged it and helped me correct it.
+
+//debugged display issues with Chat
