@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import type { Task } from '../types/Task';
 import { Button, Col, Row, Form, Container } from 'react-bootstrap';
+import { TasksContext } from '../context/TaskContext'
 
-interface TaskFormProps {
-    //task: Task;
-    addTask: (task: Task) => void;
-}
+// interface TaskFormProps {
+//     //task: Task;
+//     addTask: (task: Task) => void;
+// } --> not passing as prop anymore, converting to context.
 
-const TaskForm: React.FC<TaskFormProps>= ({addTask}) => {
+const TaskForm: React.FC = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+
+    const context = useContext(TasksContext);
+    if(!context) throw new Error("TasksContext not found");
+        
+    const { addTask } = context;
 
     const handleAddTask = (e: React.FormEvent) => {
         e.preventDefault(); //prevents page reload

@@ -68,7 +68,7 @@ return (
     // </div> 
         <div>
             <TaskList />
-            <TaskForm key={task.title} task={task}/>
+            <TaskForm />
         </div>
         
     )
