@@ -2,11 +2,19 @@ import type { Task } from '../types/Task'
 import React, { useState } from 'react';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
+import { useContext } from 'react';
+import { TasksContext } from '../context/TaskContext';
 
 const Dashboard: React.FC = () => {
 
-    const [tasks, setTasks] = useState<Task[]>([]);
-    const [newTask, setNewTask] = useState<string>('');
+    //const [tasks, setTasks] = useState<Task[]>([]);
+   // const [newTask, setNewTask] = useState<string>('');
+
+    const context = useContext(TasksContext);
+
+    if (!context) throw new Error("TasksContext not found");
+
+    const { tasks, addTask, toggleTask, deleteTask} = context;
 
     // const addTask = (): void => {
     //     if (newTask.trim() !== '') {
@@ -22,20 +30,20 @@ const Dashboard: React.FC = () => {
 
     //can remove above const addTask since we are now using TaskForm
 
-    const addTask = (task: Task ) => {
-        setTasks(prev => [...prev, task]);
-    };
+    // const addTask = (task: Task ) => {
+    //     setTasks(prev => [...prev, task]);
+    // };
     
-    const toggleTask = (title: string): void => {
-        setTasks((prevTasks) => 
-            prevTasks.map((task) =>
-                task.title === title ? {...task, completed: !task.completed}: task)
-        );
-    }
+    // const toggleTask = (title: string): void => {
+    //     setTasks((prevTasks) => 
+    //         prevTasks.map((task) =>
+    //             task.title === title ? {...task, completed: !task.completed}: task)
+    //     );
+    // }
     
-    const deleteTask = (title: string): void => {
-        setTasks((prevTasks) => prevTasks.filter((task) => task.title !== title));
-    }
+    // const deleteTask = (title: string): void => {
+    //     setTasks((prevTasks) => prevTasks.filter((task) => task.title !== title));
+    // }
 
 
 
@@ -52,14 +60,17 @@ return (
     //         className="form-control me-2"
     //         />
     //     <button onClick={addTask} className='btn btn-primary'>Add Task</button>
-     <div>
-        <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask}/> {/*Chat suggested this as well, we're passing the TaskList and TaskItems in order to map and render the tasks */}
-        <TaskForm addTask={addTask} />
-    </div> 
+    // don't need the add button anymore because we are using the TaskForm
+    // don't need to pass props anymore just pass the components, context is accessing all the props
+    //  <div>
+    //     <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask}/> {/*Chat suggested this as well, we're passing the TaskList and TaskItems in order to map and render the tasks */}
+    //     <TaskForm addTask={addTask} />
+    // </div> 
+        <div>
+            <TaskList />
+            <TaskForm key={task.title} task={task}/>
+        </div>
         
-
-
- 
     )
 
 }
