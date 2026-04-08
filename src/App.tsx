@@ -1,18 +1,24 @@
 import { useState } from 'react'
-import Dashboard from './pages/Dashboard'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import TaskDetails from './pages/TaskDetails';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import AuthenticationGuard from './components/AuthenticationGuard';
 import './App.css'
 
 function App() {
   
   return (
     <div>
-      {/* Add routing for login */}
-      {/* Add routing for registration */}
-      <Dashboard /> {/*add protected routing */}
-      {/*add protected routing for profile */}
-
-
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path='/dashboard' element={<AuthenticationGuard component={Dashboard}/>} />
+        <Route path='/profile' element={<AuthenticationGuard component={Profile} />} />
+        <Route path='/details' element={<AuthenticationGuard component={TaskDetails} />} />
+      </Routes>
+      
     </div>
   )
 }
