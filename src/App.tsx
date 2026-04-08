@@ -7,7 +7,12 @@ function App() {
   
   return (
     <div>
-      <Dashboard />
+      {/* Add routing for login */}
+      {/* Add routing for registration */}
+      <Dashboard /> {/*add protected routing */}
+      {/*add protected routing for profile */}
+
+
     </div>
   )
 }
