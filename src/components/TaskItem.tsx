@@ -30,11 +30,11 @@ return (
                 onChange={() => toggleTask(task.title)}
                 />
                 <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
-                    </span>
+                 {task.title}   
+                </span>
             
-            <p>{task.title}</p>
             <p>{task.description}</p>
-            <p>{task.completed}</p>
+            <p>{task.completed ? 'Done' : 'Pending'}</p>
             <button onClick={() => deleteTask(task.title)}>🗑️</button>
         </div>
         
