@@ -35,7 +35,7 @@ return (
                  {task.title}   
                 </span>
             
-            <p>{task.description}</p>
+            {/*<p>{task.description}</p>*/}
             <p>{task.completed ? 'Done' : 'Pending'}</p>
             <button onClick={() => deleteTask(task.title)}>🗑️</button>
         </div>
