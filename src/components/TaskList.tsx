@@ -26,7 +26,7 @@ const TaskList: React.FC = () => {
 
 
 return (
-    <Container className="text-bg-dark p-3 ">
+    <Container className="text-bg-dark p-3 rounded">
        {/*  <Row>
             
         {tasks.map(task  => ( 
@@ -36,7 +36,7 @@ return (
        {/*  </Col>
         ))}
         </Row> */}
-        
+        <h1>Task List</h1>
         <Stack gap={3}>
             {tasks.map(task =>
                 <TaskItem key={task.title} task={task} />            

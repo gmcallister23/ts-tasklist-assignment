@@ -35,9 +35,9 @@ const TaskForm: React.FC = () => {
 
     return (
         <Container>
-            <Form>
-                <Form.Group>
-                    <Form.Label>Title</Form.Label>
+            <Form >
+                <Form.Group >
+                    <Form.Label className="p-3">Title</Form.Label>
                         <Form.Control 
                             type="text"
                             value={title}
@@ -46,7 +46,7 @@ const TaskForm: React.FC = () => {
                         />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Description</Form.Label>
+                    <Form.Label className="p-3">Description</Form.Label>
                         <Form.Control 
                             type="text"
                             value={description}

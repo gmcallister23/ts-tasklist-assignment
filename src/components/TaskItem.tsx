@@ -20,10 +20,12 @@ const TaskItem: React.FC<TaskItemProps>= ({ task })  => {
     const { toggleTask, deleteTask } = context;
 
 
-return (
+return ( 
+
+        //<h1>Task Details</h1>
         <div className="d-flex align-items-center justify-content-between p-2 border rounded">
           
-            <h1>Task Details</h1>
+           
             <input 
                 type="checkbox"
                 checked={task.completed}
