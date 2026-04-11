@@ -3,6 +3,7 @@ import type { Task } from '../types/Task';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useContext } from 'react';
 import { TasksContext } from '../context/TaskContext';
+import Stack from 'react-bootstrap/Stack';
 
 
 // interface TaskListProps {
@@ -26,16 +27,24 @@ const TaskList: React.FC = () => {
 
 return (
     <Container>
-        <Row>
+       {/*  <Row>
             
         {tasks.map(task  => ( 
             <Col key={task.title} xs={12} md={6} lg={4} className="mt-3">
             {/*<TaskItem key={index} task={tasks} toggleTask={toggleTask} deleteTask={deleteTask}/> */}
-            <TaskItem key={task.title} task={task} />
-        </Col>
+            {/*<TaskItem key={task.title} task={task} /> */}
+       {/*  </Col>
         ))}
-        </Row>
+        </Row> */}
+        
+        <Stack gap={3}>
+            {tasks.map(task =>
+                <TaskItem key={task.title} task={task} />            
+            )}
+        </Stack>
     </Container>
+
+    
 )
 
 }
