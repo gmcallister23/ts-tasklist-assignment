@@ -66,7 +66,7 @@ return (
     //     <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask}/> {/*Chat suggested this as well, we're passing the TaskList and TaskItems in order to map and render the tasks */}
     //     <TaskForm addTask={addTask} />
     // </div> 
-        <div>
+        <div className="p-3 bg-dark-subtle text-dark-emphasis">
             <TaskList />
             <TaskForm />
         </div>

@@ -12,8 +12,12 @@ import './App.css'
 function App() {
   
   return (
-    <div>
-      <NavBar />
+    <div className=" bg-primary-subtle min-vh-100">
+      
+      <div className="bg-secondary-subtle rounded-bottom">
+        <NavBar />
+      </div>
+      
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path='/dashboard' element={<AuthenticationGuard component={Dashboard}/>} />

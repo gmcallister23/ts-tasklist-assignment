@@ -26,7 +26,7 @@ const TaskList: React.FC = () => {
 
 
 return (
-    <Container>
+    <Container className="text-bg-dark p-3 ">
        {/*  <Row>
             
         {tasks.map(task  => ( 
