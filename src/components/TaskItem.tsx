@@ -2,6 +2,7 @@ import type { Task } from '../types/Task';
 import React from 'react';
 import { useContext } from 'react';
 import { TasksContext } from '../context/TaskContext';
+import { Link } from 'react-router-dom';
 //import { Row } from 'react-bootstrap';
 
 interface TaskItemProps {
@@ -24,12 +25,12 @@ return (
 
         //<h1>Task Details</h1>
         <div className="d-flex align-items-center justify-content-between p-2 border rounded">
-          
+            <Link to={`/details`}> {task.title} </Link>
            
             <input 
                 type="checkbox"
                 checked={task.completed}
-                onChange={() => toggleTask(task.title)}
+                onChange={() => toggleTask(task.id)}
                 />
                 <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
                  {task.title}   
@@ -37,7 +38,7 @@ return (
             
             {/*<p>{task.description}</p>*/}
             <p>{task.completed ? 'Done' : 'Pending'}</p>
-            <button onClick={() => deleteTask(task.title)}>🗑️</button>
+            <button onClick={() => deleteTask(task.id)}>🗑️</button>
         </div>
         
     )

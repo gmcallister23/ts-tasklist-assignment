@@ -4,6 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useContext } from 'react';
 import { TasksContext } from '../context/TaskContext';
 import Stack from 'react-bootstrap/Stack';
+//import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 // interface TaskListProps {
@@ -20,30 +22,41 @@ const TaskDetails: React.FC = () => {
 
     if(!context) throw new Error("TaskContexts not found.")
 
-    const { tasks } = context;
+    const { tasks, toggleTask, deleteTask } = context;
+
+    //const { id } = useParams();
+    
+    //const task = tasks.find(t => t.title === title); //remove once id is added
+
+    //const task = tasks.find(t => t.id === id); //--> uncomment when updated to having an id
+
+    //if(!task) return <div>Task not found</div>
 
     // , addTask, toggleTask, deleteTask --> removed from const = context not passing as props due to context.
 
 
 return (
-    <div className="d-flex align-items-center justify-content-between p-2 border rounded">
+    <div className="p-3">
+        {tasks.map(task => 
+        <div className="d-flex align-items-center justify-content-between p-2 border rounded">
           
+            <Link to={`/details`}>{task.title}</Link>
            
             <input 
                 type="checkbox"
-                checked={tasks.completed}
-                onChange={() => toggleTask(task.title)}
+                checked={task.completed}
+                onChange={() => toggleTask(task.id)}
                 />
-                <span style = {{textDecoration: tasks.completed ? 'line-through' : 'none', }}>
-                 {tasks.title}   
+                <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
+                 {task.title}   
                 </span>
             
-            {/*<p>{task.description}</p>*/}
-            <p>{tasks.completed ? 'Done' : 'Pending'}</p>
-            <button onClick={() => deleteTask(tasks.title)}>🗑️</button>
+            <p>{task.description}</p>
+            <p>{task.completed ? 'Done' : 'Pending'}</p>
+            <button onClick={() => deleteTask(task.id)}>🗑️</button>
         </div>
-
-    
+    )}
+    </div>
 )
 
 }

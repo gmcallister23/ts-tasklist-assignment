@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path='/dashboard' element={<AuthenticationGuard component={Dashboard}/>} />
         <Route path='/profile' element={<AuthenticationGuard component={Profile} />} />
-        <Route path='/details' element={<AuthenticationGuard component={TaskDetails} />} />
+        <Route path='/details/' element={<AuthenticationGuard component={TaskDetails} />} />
       </Routes>
       
     </div>

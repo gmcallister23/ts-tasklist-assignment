@@ -39,7 +39,7 @@ return (
         <h1>Task List</h1>
         <Stack gap={3}>
             {tasks.map(task =>
-                <TaskItem key={task.title} task={task} />            
+                <TaskItem key={task.id} task={task} />            
             )}
         </Stack>
     </Container>

@@ -23,7 +23,10 @@ const TaskForm: React.FC = () => {
         if(title.trim() === '') return; //this validates the form
 
         const newTask: Task = {
-            title, description, completed: false,
+            id: crypto.randomUUID(),
+            title,
+            description, 
+            completed: false,
         };
 
         addTask(newTask);
@@ -72,3 +75,5 @@ const TaskForm: React.FC = () => {
 export default TaskForm;
 
 //ChatGPT helped me structure the handle function
+
+//was struggling with how to assign an id, ChatGPT suggested using 'crpyto' method.

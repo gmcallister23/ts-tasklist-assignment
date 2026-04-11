@@ -13,7 +13,7 @@ const NavBar: React.FC = () => {
                 <>
                     <Nav.Link as={Link} to='/dashboard'>Dashboard</Nav.Link>
                     <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
-                    <Nav.Link as={Link} to='/details'>Task Details</Nav.Link>
+                    <Nav.Link as={Link} to='/details/'>Task Details</Nav.Link>
                 </>
                 }
             </Nav>
