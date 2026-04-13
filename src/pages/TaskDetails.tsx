@@ -40,15 +40,13 @@ return (
         {tasks.map(task => 
         <div className="d-flex align-items-center justify-content-between p-2 border rounded">
           
-            <Link to={`/details`}>{task.title}</Link>
-           
             <input 
                 type="checkbox"
                 checked={task.completed}
                 onChange={() => toggleTask(task.id)}
                 />
                 <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
-                 {task.title}   
+                    <Link to={`/task/${task.id}`}>{task.title}</Link>
                 </span>
             
             <p>{task.description}</p>

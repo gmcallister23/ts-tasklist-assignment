@@ -25,7 +25,7 @@ return (
 
         //<h1>Task Details</h1>
         <div className="d-flex align-items-center justify-content-between p-2 border rounded">
-            <Link to={`/details`}> {task.title} </Link>
+            
            
             <input 
                 type="checkbox"
@@ -33,7 +33,7 @@ return (
                 onChange={() => toggleTask(task.id)}
                 />
                 <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
-                 {task.title}   
+                   <Link to={`/task/${task.id}`}> {task.title} </Link>
                 </span>
             
             {/*<p>{task.description}</p>*/}

@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import AuthenticationGuard from './components/AuthenticationGuard';
 import './App.css'
+import TaskView from './pages/TaskView';
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
         <Route path='/dashboard' element={<AuthenticationGuard component={Dashboard}/>} />
         <Route path='/profile' element={<AuthenticationGuard component={Profile} />} />
         <Route path='/details/' element={<AuthenticationGuard component={TaskDetails} />} />
+        <Route path='/task/:id' element={<AuthenticationGuard component={TaskView} />} />
       </Routes>
       
     </div>
