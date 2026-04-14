@@ -2,6 +2,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap'
 
 const NavBar: React.FC = () => {
     const { isAuthenticated, logout: auth0logout } = useAuth0();
@@ -15,17 +16,23 @@ const NavBar: React.FC = () => {
 
     return (
         <Navbar className="shadow-sm p3 mb-5 bg-body-tertiary rounded-bottom">
-            <Nav>
-                <Nav.Link as={Link} to='/'> Home |</Nav.Link>
+            <Container>
+                <Nav.Link className="me-auto" as={Link} to='/'> Home |</Nav.Link>
                 {isAuthenticated &&
                 <>
+                <Nav>
                     <Nav.Link as={Link} to='/dashboard'>Dashboard</Nav.Link>
                     <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
                     <Nav.Link as={Link} to='/details/'>Task Details</Nav.Link>
-                    <Button onClick={(logout)}>Logout</Button>
+                    
+                </Nav>
+                <Nav>
+                    <Button variant="secondary" onClick={(logout)}>Logout</Button>
+                </Nav>
+                    
                 </>
                 }
-            </Nav>
+            </Container>
         </Navbar>
     )
 }
