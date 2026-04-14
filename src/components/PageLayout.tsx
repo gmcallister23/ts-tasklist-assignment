@@ -1,5 +1,5 @@
 import { Col, Container } from 'react-bootstrap';
-import NavBar from '../components/NavBar';
+//import NavBar from '../components/NavBar';
 
 type PageLayoutProps = {
     children?: React.ReactNode;
