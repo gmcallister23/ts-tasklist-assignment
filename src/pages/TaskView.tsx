@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { TasksContext} from '../context/TaskContext';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Stack, Container, Col, Row } from 'react-bootstrap';
 
 const TaskView: React.FC = () => {
 
@@ -42,35 +42,63 @@ const TaskView: React.FC = () => {
         
 
     return(
-        <div className="d-flex align-items-center justify-content-between p-2 border rounded">
-            {/*<Link to={`/task/${task.id}`}>{task.title}</Link>*/}
-
-            <p>{task.title}</p>
-            <p>{task.description}</p>
-            <p>{task.completed ? 'Done' : 'Pending'}</p>
-            <Button onClick={handleEditClick}> Edit </Button>
+        <Stack>
+            <div >
+                {/*<Link to={`/task/${task.id}`}>{task.title}</Link>*/}
+                <h1>{task.title}</h1>
+                <Container>
+                    <Row >
+                        {/*<div className="d-flex justify-content-around p-2"> */}
+                        
+                            <Col><p>Title</p></Col>
+                            <Col><p>Despcription</p></Col>
+                            <Col><p>Status</p></Col>
+                            <Col><p>Edit</p></Col>
+                        {/*</div>*/}
+                    </Row>
+                    
+                </Container>
+                <Container >
+                    <Row className="bg-dark-subtle border rounded pb-1 pt-1 align-items-center text-dark-emphasis shadow-sm">
+                        <Col><p className="mb-0">{task.title}</p></Col>
+                        <Col><p className="mb-0">{task.description}</p></Col>
+                        <Col><p className="mb-0">{task.completed ? 'Done' : 'Pending'}</p></Col>
+                        <Col><Button onClick={handleEditClick}> Edit </Button></Col>
+                    </Row>
+                </Container>
+                
+               
+                
+                
+                
+                
+            {isEditing && (
+                <div>
+                    <p>Title</p>
+                    <input
+                    type="text"
+                    value={editedTitle}
+                    onChange={(e) => setEditedTitle(e.target.value)}
+                    />
+                    <p>Description</p>
+                    <input
+                    type="text"
+                    value={editedDescription}
+                    onChange={(e) => setEditedDescription(e.target.value)}
+                    />
+                    
+                    <div className="p-3">
+                        <button className="m-1 rounded shadow-sm" onClick={handleSave}>Save</button>
+                        <button className="m-1 rounded shadow-sm" onClick={() => setIsEditing(false)}>Cancel</button>
+                    </div>
+                </div>
+                
         
-
-        {isEditing && (
-            <div>
-                <input
-                type="text"
-                value={editedTitle}
-                onChange={(e) => setEditedTitle(e.target.value)}
-                />
-                <input
-                type="text"
-                value={editedDescription}
-                onChange={(e) => setEditedDescription(e.target.value)}
-                />
-                <button onClick={handleSave}>Save</button>
-                <button onClick={() => setIsEditing(false)}>Cancel</button>
-
+                )}
+            
             </div>
-        
-        )}
-
-        </div>
+            
+        </Stack>
     )
 }
 

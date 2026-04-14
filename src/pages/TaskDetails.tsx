@@ -36,25 +36,44 @@ const TaskDetails: React.FC = () => {
 
 
 return (
-    <div className="p-3">
+
+    <div>
+        <h1 className="pb-4">Task Details</h1>
+    
+    <Container>
+        <Row className="p-2">
+            <Col>Complete</Col>
+            <Col>Title</Col>
+            <Col>Description</Col>
+            <Col>Status</Col>
+            <Col>Delete</Col>
+        </Row>
+    </Container>
+    
+    <Container className=" text-bg-dark border rounded">
         {tasks.map(task => 
-        <div className="d-flex align-items-center justify-content-between p-2 border rounded">
-          
-            <input 
+            
+            <Row className="m-2 align-items-center border rounded">
+                <Col><input 
                 type="checkbox"
                 checked={task.completed}
                 onChange={() => toggleTask(task.id)}
-                />
-                <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
+                /></Col>
+                <Col className="mb-0"><span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
                     <Link to={`/task/${task.id}`}>{task.title}</Link>
-                </span>
-            
-            <p>{task.description}</p>
-            <p>{task.completed ? 'Done' : 'Pending'}</p>
-            <button onClick={() => deleteTask(task.id)}>🗑️</button>
-        </div>
-    )}
+                </span></Col>
+                <Col ><p className="mb-0">{task.description}</p></Col>
+                <Col ><p className="mb-0">{task.completed ? 'Done' : 'Pending'}</p></Col>
+                <Col><button onClick={() => deleteTask(task.id)}>🗑️</button></Col>
+
+            </Row>
+       
+        )}
+        
+    </Container>
+    
     </div>
+    
 )
 
 }

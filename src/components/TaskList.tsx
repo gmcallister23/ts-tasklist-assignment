@@ -37,6 +37,17 @@ return (
         ))}
         </Row> */}
         <h1>Task List</h1>
+        <Row>
+            <Col><p>Complete</p></Col>
+            <Col><p>Title</p></Col>
+            <Col><p>Status</p></Col>
+            <Col><p>Delete</p></Col>
+
+        </Row>
+        {/*<div className="d-flex justify-content-around">
+        </div> */}
+        
+       
         <Stack gap={3}>
             {tasks.map(task =>
                 <TaskItem key={task.id} task={task} />            

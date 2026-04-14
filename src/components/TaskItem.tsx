@@ -3,7 +3,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { TasksContext } from '../context/TaskContext';
 import { Link } from 'react-router-dom';
-//import { Row } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 
 interface TaskItemProps {
     task: Task;
@@ -24,22 +24,20 @@ const TaskItem: React.FC<TaskItemProps>= ({ task })  => {
 return ( 
 
         //<h1>Task Details</h1>
-        <div className="d-flex align-items-center justify-content-between p-2 border rounded">
-            
-           
-            <input 
+        <Container>
+            <Row className="align-items-center pt-1 pb-1 border rounded">
+                <Col><input 
                 type="checkbox"
                 checked={task.completed}
                 onChange={() => toggleTask(task.id)}
-                />
-                <span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
+                /></Col>
+                <Col><span style = {{textDecoration: task.completed ? 'line-through' : 'none', }}>
                    <Link to={`/task/${task.id}`}> {task.title} </Link>
-                </span>
-            
-            {/*<p>{task.description}</p>*/}
-            <p>{task.completed ? 'Done' : 'Pending'}</p>
-            <button onClick={() => deleteTask(task.id)}>🗑️</button>
-        </div>
+                </span></Col>
+                <Col><p className="mb-0">{task.completed ? 'Done' : 'Pending'}</p></Col>
+                <Col><button className="border rounded"onClick={() => deleteTask(task.id)}>🗑️</button></Col>
+            </Row>
+        </Container>
         
     )
 }
@@ -48,4 +46,6 @@ export default TaskItem;
 
 //destructure the props later --> destructured.
 
-//debugged display issues with Chat
+//debugged display issues with Chat 
+// 
+//{/*<p>{task.description}</p>*/}
