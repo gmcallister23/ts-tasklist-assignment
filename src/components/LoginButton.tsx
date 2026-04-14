@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { Button } from 'react-bootstrap';
+import { Button, Stack, Col } from 'react-bootstrap';
 import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
 
@@ -39,13 +39,15 @@ const LoginButton: React.FC = () => {
         </>
     ) : (
 
+        <Stack gap={3} className="col-sm-1 mx-auto">
         <>
-        {error && <p>Error: {error.message}</p>}
 
+        {error && <p>Error: {error.message}</p>}
+        <Button onClick={(handleLogin)}>Login</Button>
         <Button onClick={signup}>Sign Up</Button>
 
-        <Button onClick={(handleLogin)}>Login</Button>
         </>
+        </Stack >
     )
 
 };
