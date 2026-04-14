@@ -1,6 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'react-bootstrap';
 import Dashboard from '../pages/Dashboard';
+import Home from '../pages/Home';
 
 const LoginButton: React.FC = () => {
     const { loginWithRedirect: login, isAuthenticated, isLoading, error, logout: auth0logout, user } = useAuth0();
@@ -30,9 +31,10 @@ const LoginButton: React.FC = () => {
         
         <pre>{JSON.stringify(user, null, 2)}</pre> */}
        
-        <Dashboard />
+        <Home />
+        {/*<Dashboard /> */}
 
-        <Button onClick={logout}>Logout</Button>
+        {/*<Button onClick={logout}>Logout</Button> */}
 
         </>
     ) : (
