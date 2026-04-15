@@ -1,3 +1,12 @@
+Task Management Assignment
+
+This is a TypeScript React assignment.  To view it live, be sure to open the application, then in a terminal, 'npm run dev' to view it with Vite.
+
+This is a task management app that allows you to create, edit, update and delete tasks.  It is a multiple page app that has a dashboard, details task list and individual task details. 
+
+I applied, global context, protected routes, Auth0 and TypeScript tasks in this app. 
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
