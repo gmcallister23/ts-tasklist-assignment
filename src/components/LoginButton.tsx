@@ -20,8 +20,8 @@ const LoginButton: React.FC = () => {
 
     const handleLogin = () => login();
 
-    
-    if (isLoading) return "Loading...";
+    {/* 
+    if (isLoading) return "Loading...";*/}
 
     return isAuthenticated ? (
         <>
